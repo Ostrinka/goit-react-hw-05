@@ -9,7 +9,6 @@ export default function MovieList({ movies }) {
           <Link to={`/movie/${movie.id}`}>{movie.title}</Link>
         </li>
         ))}
-      console.log(movies);
     </ul>
   );
 }
