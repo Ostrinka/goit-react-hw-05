@@ -2,7 +2,7 @@ import { useState, useEffect, Suspense, useRef } from 'react';
 import { useParams, Outlet, Link, useLocation } from 'react-router-dom';
 import { fetchMovieDetails } from '../../movies-api';
 import { FaArrowLeftLong } from "react-icons/fa6";
-// import css from './MovieDetailsPage.module.css';
+import css from './MovieDetailsPage.module.css';
 
 const defaultImg = 'https://dl-media.viber.com/10/share/2/long/vibes/icon/image/0x0/95e0/5688fdffb84ff8bed4240bcf3ec5ac81ce591d9fa9558a3a968c630eaba195e0.jpg';
 
@@ -26,15 +26,16 @@ export default function MovieDetailsPage() {
     }
   }, [movieId]);
 
-  const { original_title, overview, genres, poster_path, vote_average } = movieDetails;
-  const score = `${(vote_average * 10)}%`;
+  const { original_title, overview, genres, poster_path, vote_average, release_date } = movieDetails;
+  const score = `${(vote_average * 10).toFixed(2)}%`;
+  const releaseYear = new Date(release_date).getFullYear();
 
   return (
     <div>
-      <p>
-        <Link to={backLinkRef.current}><FaArrowLeftLong /> Go back </Link>
-      </p>
-        <div>
+      <button className={css.btn}>
+        <Link to={backLinkRef.current}><FaArrowLeftLong />  Go back</Link>
+      </button>
+        <div className={css.about}>
         <img
           src={
             poster_path
@@ -47,12 +48,12 @@ export default function MovieDetailsPage() {
           
         />
         <div>
-          <h1>{original_title}</h1>
+          <h2 className={css.title}>{original_title} ({releaseYear})</h2>
           <p>User score: {score}</p>
-          <h2>Overview</h2>
+          <h3 className={css.title}>Overview</h3>
           <p>{overview}</p>
-          <h2>Genres</h2>
-          <ul>
+          <h3 className={css.title}>Genres</h3>
+          <ul className={css.genres}> 
             {genres &&
               genres.length > 0 &&
               genres.map(({ id, name }) => <li key={id}>{name}</li>)}
@@ -62,7 +63,7 @@ export default function MovieDetailsPage() {
       <div>
         <h3>Additional information</h3>
         <ul>
-          <li>
+          <li className={css.list}>
             <Link
               to="cast"
               state={{ ...location.state }}
@@ -71,7 +72,7 @@ export default function MovieDetailsPage() {
               Cast
             </Link>
           </li>
-          <li >
+          <li className={css.list}>
             <Link
               to="reviews"
               state={{ ...location.state }}
