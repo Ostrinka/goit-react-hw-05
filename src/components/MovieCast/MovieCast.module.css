@@ -1,0 +1,25 @@
+.menu {
+  padding-left: 0;
+  margin-top: 30px;
+  margin-left: 20px;
+}
+
+.list {
+  align-items: start;
+  list-style-type: none;
+}
+
+.img {
+  width: 100px;
+  height: 150px;
+  margin-bottom: 0;
+}
+
+.name {
+  font-size: 16px;
+}
+
+.character {
+  font-size: 14px;
+  margin-bottom: 30px;
+}
