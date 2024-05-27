@@ -28,7 +28,8 @@ export default function App () {
               <Route path="reviews" element={<MovieReviews />} />
             </Route>
             <Route path="*" element={<NotFoundPage />} />
-          </Routes></Suspense>
+          </Routes>
+        </Suspense>
          </div>
     )
 }
