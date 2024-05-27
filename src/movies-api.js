@@ -49,10 +49,10 @@ export const fetchMovieCredits = async (movieId) => {
 };
 
 export const fetchMovieReviews = async (movieId) => {
-  const url = `https://api.themoviedb.org/3/movie/${movieId}/reviews`;
+  const url = `https://api.themoviedb.org/3/movie/${movieId}/reviews?language=en-US&page=1`;
   try {
     const response = await axios.get(url, options);
-    return response.data.results;
+    return response.data;
   } catch (error) {
     console.error(error);
   }
