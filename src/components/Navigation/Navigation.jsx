@@ -6,10 +6,10 @@ export default function Navigation() {
     <nav>
       <ul className={css.menu}>
         <li>
-          <NavLink to="/" className={css.link} activeClassName='active'>Home</NavLink>
+          <NavLink to="/" className={css.link}>Home</NavLink>
         </li>
         <li>
-          <NavLink to="/movies" className={css.link} activeClassName='active'>Movies</NavLink>
+          <NavLink to="/movies" className={css.link}>Movies</NavLink>
         </li> 
       </ul>
     </nav>

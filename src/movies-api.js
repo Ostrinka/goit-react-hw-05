@@ -3,7 +3,8 @@ import axios from "axios";
 const API_KEY = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhMmY5MDkyZjc4NWIzZGViMmE5YjdiNTQ4MTc1ZjE0YiIsInN1YiI6IjY2NTA1YmMzYThmZTIyYzY2ZTBhNmY3MCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.3mK9Bml-9ypZ_8Y8a5UMYjvvhzPeIGWHd5jhmOVt1GM';
 const options = {
   headers: {
-    Authorization: `Bearer ${API_KEY}`
+    Authorization: `Bearer ${API_KEY}`,
+    accept: 'application/json'
   }
 };
 
@@ -28,7 +29,7 @@ export const fetchSearchMovie = async (query) => {
 };
 
 export const fetchMovieDetails = async (movieId) => {
-  const url = `https://api.themoviedb.org/3/movie/${movieId}`;
+  const url = `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`;
   try {
     const response = await axios.get(url, options);
     return response.data;
