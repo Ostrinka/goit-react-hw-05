@@ -64,22 +64,10 @@ export default function MovieDetailsPage() {
         <h3>Additional information</h3>
         <ul>
           <li className={css.list}>
-            <Link
-              to="cast"
-              state={{ ...location.state }}
-              
-            >
-              Cast
-            </Link>
+            <Link to="cast">Cast</Link>
           </li>
           <li className={css.list}>
-            <Link
-              to="reviews"
-              state={{ ...location.state }}
-              
-            >
-              Reviews
-            </Link>
+            <Link to="reviews">Reviews</Link>
           </li>
         </ul>
         <Suspense fallback={<div>Loading...</div>}>
